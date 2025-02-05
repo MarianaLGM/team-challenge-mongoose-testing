@@ -21,12 +21,14 @@
     añadimos la ruta:*/
     app.use(express.json());
     app.use('/', routes);
-    
-    
+
     //PASO 2_BIS: llamamos la función para que cuando levantemos el servidor haga la conexión.
     dbConnection();
     
+ 
+
     //PASO 1:
     app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
 
+       
     module.exports = app;
