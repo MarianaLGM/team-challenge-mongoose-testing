@@ -3,13 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "test":  "jest --watchAll",
-    "test:watch": "jest --watchAll",
-=======
     "test": "jest",
     "test.watch" : "jest --watchAll",
->>>>>>> 117875a6434f1398a20229f2750403c307d5b598
     "start": "node --watch index.js"
   },
   "keywords": [],
