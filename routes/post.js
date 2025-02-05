@@ -69,37 +69,20 @@ router.get("/title/:title", async(req, res) => {
 });
 
 //PUT /id/:_id: Endpoint para actualizar una publicación.
-router.put("/id/:_id", async(req, res) => {
-    try {
-        const id=req.params._id;
-        const updatePost = await Post.updateOne({id});
-        res
-            .status(200)
-            .json(updatePost);
-    } catch (error) {
-        console.error(error);
-        res
-            .status(500)
-            .send({ message: "There was a problem trying to update a post" });
-    }
-});
-/*
+
 router.put("/id/:_id", async(req, res) => {
     try {
         const id=req.params._id;
         const updatePost = await Post.findByIdAndUpdate(
             id,
             {title: req.body.title, body: req.body.body}, {new: true})
-        res
-            .status(200)
-            .json(updatePost);
+            console.log(updatePost)
+        res.status(200).json(updatePost);
     } catch (error) {
         console.error(error);
-        res
-            .status(500)
-            .send({ message: "There was a problem trying to update a post" });
+        res.status(500).send({ message: "There was a problem trying to update a post" });
     }
-});*/
+});
 
 
 //- DELETE /id/:_id: Endpoint para eliminar una publicación.
