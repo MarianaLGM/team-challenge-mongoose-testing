@@ -71,7 +71,7 @@ router.get("/title/:title", async(req, res) => {
 //PUT /id/:_id: Endpoint para actualizar una publicación.
 router.put("/id/:_id", async(req, res) => {
     try {
-        const id=req.params.id;
+        const id=req.params._id;
         const updatePost = await Post.updateOne({id});
         res
             .status(200)
@@ -105,7 +105,7 @@ router.put("/id/:_id", async(req, res) => {
 //- DELETE /id/:_id: Endpoint para eliminar una publicación.
 router.delete("/id/:_id", async(req, res) => {
     try {
-        const id=req.params.id;
+        const id=req.params._id;
         const deletePost = await Post.find({id});
         console.log(deletePost)
         res
