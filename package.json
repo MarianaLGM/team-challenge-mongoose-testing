@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "test":  "jest --watchAll",
     "test:watch": "jest --watchAll",
+=======
+    "test": "jest",
+    "test.watch" : "jest --watchAll",
+>>>>>>> 117875a6434f1398a20229f2750403c307d5b598
     "start": "node --watch index.js"
   },
   "keywords": [],
@@ -18,7 +23,7 @@
     "mongoose": "8.9.7"
   },
   "devDependencies": {
-    "jest": "29.7.0",
-    "supertest": "7.0.0"
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }
