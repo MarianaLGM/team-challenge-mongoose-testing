@@ -10,22 +10,23 @@ describe("testing/posts", () => {
         title: "postTitle",
         body: "postDescription"
     }
-});
-
-//Creamos nuestro primer test, que testea que se haya creado una publicación.
-test("Create a post", async () => {
+    //Creamos nuestro primer test, que testea que se haya creado una publicación.
+  test("Create a post", async () => {
     let postsCount = await Post.countDocuments({});
     expect(postsCount).toBe(0);//chequeamos que no haya ninguña publicación
-    resPost = await request(app).post("/create").send(post).expect(201);//Hacemos la petición para crear un usuario
-    
+    resPost = await request(app).post("/create").send(post).expect(201);//Hacemos la petición para crear una petición
+  
     postsCount = await Post.countDocuments({});
     expect(postsCount).toBe(1); //chequeamos que haya un publicacióo
 
     resPost = await request(app).post("/create").send(post).expect(201);
-   // expect(resPost.param.post._id).toBeDefined();
+    expect(resPost.param.post._id).toBeDefined();
     expect(resPost.body.post.createdAt).toBeDefined();
     expect(resPost.body.post.updatedAt).toBeDefined();
   });
+});
+
+
 
 
 //Una vez se ejecuten los tests limpiamos la colección de publicaciones:
