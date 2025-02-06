@@ -5,6 +5,7 @@
   "scripts": {
     "test": "jest",
     "test.watch" : "jest --watchAll",
+    "test.open": "jest --detectOpenHandles",
     "start": "node --watch index.js"
   },
   "keywords": [],

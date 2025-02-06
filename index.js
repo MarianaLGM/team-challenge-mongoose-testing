@@ -28,7 +28,11 @@
  
 
     //PASO 1:
-    app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+    const server = app.listen(PORT, () => {
+        console.log(`Server listening on http://localhost:${PORT}`);
+      });
+      
+    module.exports = { app, server }; // Exporta tanto app como server
+  
 
        
-    module.exports = app;

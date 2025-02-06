@@ -1,7 +1,5 @@
 const request = require("supertest");
-const app = require("../index.js");
-
-//CAMBIO: const {Post} = require("../models/Post.js");esto teníamos mal lo correcto sería:
+const { app, server } = require("../index.js"); // Importa app y server
 const Post = require("../models/Post.js")
 
 /*Definimos post que se usará en el test de creación de publicación. 
@@ -21,14 +19,15 @@ describe("/create", () => { //aquí tenía puesto testing/posts CAMBIO
     postsCount = await Post.countDocuments({});//Devuelve un número entero correspondiente a la cantidad de documentos que coinciden con la consulta de la colección o vista.
     expect(postsCount).toBe(1); //chequeamos que haya un publicación
 
-    //expect(resPost.param.post._id).toBeDefined();
-    //expect(resPost.body.post.createdAt).toBeDefined();
-   // expect(resPost.body.post.updatedAt).toBeDefined();
   });
-  afterAll(() => {
-    return Post.deleteMany();//Una vez se ejecuten los tests limpiamos la colección de publicaciones:
+  afterAll(async() => {
+    await Post.deleteMany();//Una vez se ejecuten los tests limpiamos la colección de publicaciones:
+    server.close(); // Cierra el servidor después de las pruebas
   });
 });
+
+
+//IMPORTANTE para ver si el testing sale ok tengo que poner en consola npm run test.open
 
 
 
